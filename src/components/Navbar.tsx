@@ -67,12 +67,12 @@ export default function Navbar() {
           <a href="#home" className="flex items-center gap-2 group">
             <motion.div
               whileHover={{ scale: 1.1 }}
-              className="h-11 w-11 overflow-hidden rounded-full shadow-lg ring-2 ring-gold/30"
+              className="h-11 w-11 overflow-hidden rounded-full shadow-lg ring-2 ring-accent/30"
             >
               <img src={logo} alt="Imperial Kids" className="h-full w-full object-cover" fetchPriority="high" loading="eager" />
             </motion.div>
-            <span className="font-heading text-xl font-bold text-royal lg:text-2xl">
-              Imperial <span className="text-gold">Kids</span>
+            <span className="font-heading text-xl font-bold text-white lg:text-2xl">
+              Imperial <span className="text-accent">Kids</span>
             </span>
           </a>
 
@@ -83,7 +83,7 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className="relative rounded-full px-4 py-2 text-sm font-semibold text-royal/80 transition hover:text-royal hover:bg-royal/5"
+                  className="relative rounded-full px-4 py-2 text-sm font-semibold text-gray-300 transition hover:text-white hover:bg-bordo-light/20"
                 >
                   {t(`navbar.${link.key}`)}
                 </a>
@@ -95,7 +95,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={() => setLang(lang === 'uz' ? 'ru' : 'uz')}
-              className="flex items-center justify-center rounded-full border-2 border-gold/40 px-3 py-1 font-bold text-royal transition hover:bg-gold/10 text-sm"
+              className="flex items-center justify-center rounded-full border-2 border-accent/40 px-3 py-1 font-bold text-white transition hover:bg-accent/10 text-sm"
             >
               {lang === 'uz' ? 'RU' : 'UZ'}
             </button>
@@ -106,7 +106,7 @@ export default function Navbar() {
             whileTap={{ scale: 0.95 }}
             animate={{ y: [0, -3, 0] }}
             transition={{ y: { duration: 2, repeat: Infinity, ease: 'easeInOut' } }}
-            className="hidden items-center gap-1.5 rounded-full bg-gradient-to-r from-gold to-gold-light px-6 py-2.5 text-sm font-bold text-royal shadow-lg shadow-gold/30 transition hover:shadow-xl hover:shadow-gold/40 lg:inline-flex"
+            className="hidden items-center gap-1.5 rounded-full bg-gradient-to-r from-bordo to-bordo-light px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-bordo/30 transition hover:shadow-xl hover:shadow-bordo/40 lg:inline-flex"
           >
             {t('navbar.enroll')} <Sparkles size={16} />
           </motion.a>
@@ -117,7 +117,7 @@ export default function Navbar() {
             {/* Mobile Lang Toggle */}
             <button
               onClick={() => setLang(lang === 'uz' ? 'ru' : 'uz')}
-              className="flex items-center justify-center rounded-full border border-gold/40 px-3 py-1 font-bold text-royal transition hover:bg-gold/10 text-xs"
+              className="flex items-center justify-center rounded-full border border-accent/40 px-3 py-1 font-bold text-white transition hover:bg-accent/10 text-xs"
             >
               {lang === 'uz' ? 'RU' : 'UZ'}
             </button>
@@ -125,7 +125,7 @@ export default function Navbar() {
               id="mobile-menu-toggle"
               onClick={() => setMobileOpen(!mobileOpen)}
               whileTap={{ scale: 0.9 }}
-              className="relative z-[60] flex h-11 w-11 items-center justify-center rounded-2xl bg-royal/10 text-royal transition-colors hover:bg-royal/20"
+              className="relative z-[60] flex h-11 w-11 items-center justify-center rounded-2xl bg-bordo-light/20 text-white transition-colors hover:bg-bordo-light/30"
             >
               <AnimatePresence mode="wait">
                 {mobileOpen ? (
@@ -166,7 +166,7 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={closeMobile}
-              className="fixed inset-0 z-[45] bg-royal/30 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-[45] bg-bordo-950/80 backdrop-blur-sm lg:hidden"
             />
 
             {/* Slide-in Panel */}
@@ -175,10 +175,8 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 z-[55] w-[80%] max-w-sm bg-gradient-to-b from-cream to-white shadow-2xl lg:hidden"
+              className="fixed top-0 right-0 bottom-0 z-[55] w-[80%] max-w-sm bg-gradient-to-b from-bordo-900 to-bordo-950 shadow-2xl lg:hidden"
             >
-              {/* Panel Header removed based on user request */}
-
               {/* Nav Links */}
               <nav className="px-4 py-6">
                 <ul className="flex flex-col gap-1">
@@ -192,7 +190,7 @@ export default function Navbar() {
                       <a
                         href={link.href}
                         onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                        className="flex items-center gap-3 rounded-2xl px-4 py-3.5 font-semibold text-royal/80 transition-colors hover:bg-royal/5 hover:text-royal active:bg-royal/10"
+                        className="flex items-center gap-3 rounded-2xl px-4 py-3.5 font-semibold text-gray-300 transition-colors hover:bg-bordo-light/20 hover:text-white active:bg-bordo-light/30"
                       >
                         <span className="text-lg">{t(`navbar.${link.key}`)}</span>
                       </a>
@@ -210,7 +208,7 @@ export default function Navbar() {
                   <a
                     href="#contact"
                     onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-                    className="flex justify-center items-center gap-1.5 rounded-2xl bg-gradient-to-r from-royal to-royal-light px-6 py-4 text-center font-bold text-white shadow-lg shadow-royal/25 transition hover:shadow-xl"
+                    className="flex justify-center items-center gap-1.5 rounded-2xl bg-gradient-to-r from-bordo to-bordo-light px-6 py-4 text-center font-bold text-white shadow-lg shadow-bordo/25 transition hover:shadow-xl"
                   >
                     {t('navbar.enroll')} <Sparkles size={16} />
                   </a>
@@ -221,16 +219,16 @@ export default function Navbar() {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4 + navKeys.length * 0.05 }}
-                  className="mt-8 border-t border-gold/10 px-4 pt-6"
+                  className="mt-8 border-t border-white/10 px-4 pt-6"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">{t('navbar.contact_title')}</p>
-                  <a href="tel:+998951850900" className="flex items-center gap-2 text-sm text-royal/70 mb-2 hover:text-royal transition">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">{t('navbar.contact_title')}</p>
+                  <a href="tel:+998951850900" className="flex items-center gap-2 text-sm text-gray-400 mb-2 hover:text-white transition">
                     <Phone size={14} /> +998 95 185 09 00
                   </a>
-                  <a href="tel:+998555180900" className="flex items-center gap-2 text-sm text-royal/70 mb-2 hover:text-royal transition">
+                  <a href="tel:+998555180900" className="flex items-center gap-2 text-sm text-gray-400 mb-2 hover:text-white transition">
                     <Phone size={14} /> +998 55 518 09 00
                   </a>
-                  <a href="https://t.me/imperialkids_admin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-royal/70 hover:text-royal transition">
+                  <a href="https://t.me/imperialkids_admin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition">
                     <Send size={14} /> @imperialkids_admin
                   </a>
                 </motion.div>

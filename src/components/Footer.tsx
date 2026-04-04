@@ -92,20 +92,20 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer id="contact" className="relative overflow-hidden bg-royal pt-20 pb-8 text-white/90">
+    <footer id="contact" className="relative overflow-hidden bg-bordo-900 pt-20 pb-8 text-white/90">
       {/* Decorative top wave */}
       <div className="absolute -top-1 left-0 right-0">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
           <path
             d="M0 40L60 35C120 30 240 20 360 18C480 16 600 22 720 30C840 38 960 48 1080 50C1200 52 1320 46 1380 43L1440 40V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V40Z"
-            fill="#FEFCE8"
+            className="fill-bordo-950"
           />
         </svg>
       </div>
 
       {/* Glow orbs */}
-      <div className="absolute left-0 top-1/3 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
-      <div className="absolute right-0 bottom-1/3 h-64 w-64 rounded-full bg-sky/10 blur-3xl" />
+      <div className="absolute left-0 top-1/3 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
+      <div className="absolute right-0 bottom-1/3 h-64 w-64 rounded-full bg-bordo-light/10 blur-3xl" />
 
       <div ref={ref} className="relative z-10 mx-auto max-w-7xl px-5 lg:px-8">
         {/* Newsletter */}
@@ -116,7 +116,7 @@ export default function Footer() {
           className="mb-16 rounded-3xl bg-white/10 p-8 text-center backdrop-blur sm:p-12"
         >
           <h3 className="mb-3 flex items-center justify-center gap-2 font-heading text-2xl font-bold text-white sm:text-3xl">
-            {t('footer.enroll_title')} <Crown className="text-gold" />
+            {t('footer.enroll_title')} <Crown className="text-accent" />
           </h3>
           <p className="mx-auto mb-6 max-w-md text-sm text-white/70">
             {t('footer.enroll_desc')}
@@ -133,7 +133,7 @@ export default function Footer() {
                 onChange={(e) => setName(e.target.value)}
                 placeholder={t('footer.input_name')}
                 required
-                className="flex-1 rounded-full bg-white/15 px-6 py-3.5 text-sm text-white placeholder-white/50 outline-none ring-1 ring-white/20 transition focus:ring-gold"
+                className="flex-1 rounded-full bg-white/15 px-6 py-3.5 text-sm text-white placeholder-white/50 outline-none ring-1 ring-white/20 transition focus:ring-accent"
               />
               <input
                 id="enroll-phone"
@@ -142,7 +142,7 @@ export default function Footer() {
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder={t('footer.input_phone')}
                 required
-                className="flex-1 rounded-full bg-white/15 px-6 py-3.5 text-sm text-white placeholder-white/50 outline-none ring-1 ring-white/20 transition focus:ring-gold"
+                className="flex-1 rounded-full bg-white/15 px-6 py-3.5 text-sm text-white placeholder-white/50 outline-none ring-1 ring-white/20 transition focus:ring-accent"
               />
             </div>
             <motion.button
@@ -151,7 +151,7 @@ export default function Footer() {
               disabled={loading}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="mt-2 mx-auto flex sm:w-auto w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold to-gold-light px-8 py-3.5 text-sm font-bold text-royal shadow-lg shadow-gold/25 transition hover:shadow-xl disabled:opacity-75"
+              className="mt-2 mx-auto flex sm:w-auto w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-bordo to-bordo-light px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-bordo/25 transition hover:shadow-xl disabled:opacity-75"
             >
               {loading ? (
                 <><Loader2 size={16} className="animate-spin" /> {t('footer.btn_sending')}</>
@@ -173,11 +173,11 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div className="mb-4 flex items-center gap-3">
-              <div className="h-12 w-12 overflow-hidden rounded-full ring-2 ring-gold/40 shadow-lg">
+              <div className="h-12 w-12 overflow-hidden rounded-full ring-2 ring-accent/40 shadow-lg">
                 <img src={logo} alt="Imperial Kids" className="h-full w-full object-cover" />
               </div>
               <span className="font-heading text-xl font-bold">
-                Imperial <span className="text-gold">Kids</span>
+                Imperial <span className="text-accent">Kids</span>
               </span>
             </div>
             <p className="mb-5 text-sm leading-relaxed text-white/60">
@@ -192,7 +192,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label={label}
                   whileHover={{ scale: 1.15, y: -3 }}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-gold hover:text-royal"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-accent hover:text-white"
                 >
                   <Icon size={18} />
                 </motion.a>
@@ -212,7 +212,7 @@ export default function Footer() {
                 <li key={link.key}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/60 transition hover:text-gold hover:translate-x-1 inline-block"
+                    className="text-sm text-white/60 transition hover:text-accent hover:translate-x-1 inline-block"
                   >
                     {t(link.key)}
                   </a>
@@ -233,7 +233,7 @@ export default function Footer() {
                 <li key={link.key}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/60 transition hover:text-gold hover:translate-x-1 inline-block"
+                    className="text-sm text-white/60 transition hover:text-accent hover:translate-x-1 inline-block"
                   >
                     {t(link.key)}
                   </a>
@@ -251,29 +251,29 @@ export default function Footer() {
             <h4 className="mb-4 font-heading text-lg font-bold text-white">{t('footer.contact')}</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-white/60">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-gold" />
+                <MapPin size={16} className="mt-0.5 shrink-0 text-accent" />
                 <span>{t('footer.address')}</span>
               </li>
               <li>
-                <a href="tel:+998951850900" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-gold">
-                  <Phone size={16} className="shrink-0 text-gold" />
+                <a href="tel:+998951850900" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-accent">
+                  <Phone size={16} className="shrink-0 text-accent" />
                   <span>+998 95 185 09 00</span>
                 </a>
               </li>
               <li>
-                <a href="tel:+998555180900" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-gold">
-                  <Phone size={16} className="shrink-0 text-gold" />
+                <a href="tel:+998555180900" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-accent">
+                  <Phone size={16} className="shrink-0 text-accent" />
                   <span>+998 55 518 09 00</span>
                 </a>
               </li>
               <li>
-                <a href="https://t.me/imperialkids_admin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-gold">
-                  <MessageCircle size={16} className="shrink-0 text-gold" />
+                <a href="https://t.me/imperialkids_admin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-accent">
+                  <MessageCircle size={16} className="shrink-0 text-accent" />
                   <span>@imperialkids_admin</span>
                 </a>
               </li>
               <li className="flex items-center gap-3 text-sm text-white/60">
-                <Clock size={16} className="shrink-0 text-gold" />
+                <Clock size={16} className="shrink-0 text-accent" />
                 <span>{t('footer.schedule')}</span>
               </li>
             </ul>
@@ -307,7 +307,7 @@ export default function Footer() {
             href="tel:+998951850900"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-gold to-gold-light px-6 py-3 text-sm font-bold text-royal shadow-lg shadow-gold/25"
+            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-bordo to-bordo-light px-6 py-3 text-sm font-bold text-white shadow-lg shadow-bordo/25"
           >
             <Phone size={16} />
             {t('footer.btn_call')}
@@ -344,7 +344,7 @@ export default function Footer() {
           <motion.button
             onClick={scrollToTop}
             whileHover={{ scale: 1.1, y: -3 }}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-gold text-royal shadow-lg transition hover:shadow-xl"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-bordo-950 shadow-lg transition hover:shadow-xl"
           >
             <ArrowUp size={18} />
           </motion.button>

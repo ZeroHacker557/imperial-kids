@@ -55,7 +55,7 @@ function InfiniteRow({
         {allImages.map((src, i) => (
           <div
             key={i}
-            className="group relative h-48 w-72 flex-shrink-0 overflow-hidden rounded-2xl shadow-md transition-shadow duration-300 hover:shadow-xl sm:h-56 sm:w-80 md:h-64 md:w-96"
+            className="group relative h-48 w-72 flex-shrink-0 overflow-hidden rounded-2xl shadow-md transition-shadow duration-300 hover:shadow-xl hover:shadow-bordo/20 sm:h-56 sm:w-80 md:h-64 md:w-96"
           >
             <img
               src={src}
@@ -64,7 +64,7 @@ function InfiniteRow({
               loading="lazy"
             />
             {/* Hover overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-royal/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bordo-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </div>
         ))}
       </div>
@@ -78,7 +78,7 @@ export default function Gallery() {
   const { t } = useLanguage();
 
   return (
-    <section id="gallery" className="relative bg-white section-padding overflow-hidden">
+    <section id="gallery" className="relative bg-bordo-950 section-padding overflow-hidden">
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
         <motion.div
@@ -88,14 +88,14 @@ export default function Gallery() {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-gold/15 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-gold-dark">
+          <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent">
             <Camera size={14} /> {t('gallery.badge')}
           </span>
-          <h2 className="font-heading text-3xl font-extrabold text-royal sm:text-4xl md:text-5xl">
+          <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl md:text-5xl">
             {t('gallery.title_1')}{' '}
             <span className="text-gradient">{t('gallery.title_val')}</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-slate-500 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-gray-400 sm:text-lg">
             {t('gallery.subtitle')}
           </p>
         </motion.div>
