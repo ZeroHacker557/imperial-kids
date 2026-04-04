@@ -112,8 +112,8 @@ export const uz = {
     quick_links: "Tezkor Havolalar",
     programs: "Dasturlar",
     contact: "Bog'lanish",
-    address: "Yashnabod tumani, Yakkatol, 66A",
-    schedule: "Dush – Juma: 7:30 – 19:00",
+    address: "Yashnobod tumani, Yakkatol, 66A",
+    schedule: "Dush – Juma: 7:30 – 19:00\nShanba: 08:00 – 17:00",
     btn_call: "Qo'ng'iroq qilish",
     btn_tg: "Telegram orqali yozish",
     rights: "Imperial Kids. Barcha huquqlar himoyalangan."

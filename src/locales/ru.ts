@@ -112,8 +112,8 @@ export const ru = {
     quick_links: "Быстрые Ссылки",
     programs: "Программы",
     contact: "Связаться",
-    address: "Яшнабадский район, Яккатол, 66А",
-    schedule: "Пон – Пят: 7:30 – 19:00",
+    address: "Яшнобадский район, Яккатол, 66А",
+    schedule: "Пон – Пят: 7:30 – 19:00\nСуббота: 08:00 – 17:00",
     btn_call: "Позвонить",
     btn_tg: "Написать в Telegram",
     rights: "Imperial Kids. Все права защищены."
