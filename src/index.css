@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════
+   Imperial Kids — Design Tokens & Global Styles
+   ═══════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Colors ── */
+  --color-royal: #1E3A8A;
+  --color-royal-dark: #162D6B;
+  --color-royal-light: #2B4FA8;
+  --color-gold: #F59E0B;
+  --color-gold-light: #FBBF24;
+  --color-gold-dark: #D97706;
+  --color-mint: #A7F3D0;
+  --color-mint-light: #D1FAE5;
+  --color-peach: #FED7AA;
+  --color-peach-light: #FFEDD5;
+  --color-cream: #FEFCE8;
+  --color-cream-dark: #FEF9C3;
+  --color-sky: #BFDBFE;
+  --color-sky-light: #DBEAFE;
+  --color-lavender: #DDD6FE;
+  --color-lavender-light: #EDE9FE;
+  --color-rose: #FECDD3;
+  --color-rose-light: #FFE4E6;
+
+  /* ── Fonts ── */
+  --font-heading: 'Baloo 2', cursive;
+  --font-body: 'Nunito', sans-serif;
+
+  /* ── Border Radius ── */
+  --radius-blob: 2rem;
+  --radius-pill: 100px;
+}
+
+/* ── Base resets ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #1e293b;
+  background-color: #FEFCE8;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FEFCE8;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1E3A8A, #F59E0B);
+  border-radius: 100px;
+}
+
+/* ── Selection ── */
+::selection {
+  background: #1E3A8A;
+  color: #FEFCE8;
+}
+
+/* ── Glassmorphism utility ── */
+.glass {
+  background: rgba(254, 252, 232, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.18);
+}
+
+/* ── Gradient text ── */
+.text-gradient {
+  background: linear-gradient(135deg, #1E3A8A 0%, #2B4FA8 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Floating keyframes ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(-3deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 8s ease-in-out infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* ── Section padding ── */
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 6rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 7rem 4rem;
+  }
+}
