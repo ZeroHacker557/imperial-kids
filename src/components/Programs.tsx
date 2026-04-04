@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
-  Calculator, Languages, Mic, Palette, Theater, MessageCircle,
+  Calculator, Languages, Mic, Palette, MessageCircle,
   Clock, Users, Star, ArrowRight, Dumbbell, ChefHat, Activity, Salad
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';

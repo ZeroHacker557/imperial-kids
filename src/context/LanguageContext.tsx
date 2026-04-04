@@ -32,14 +32,15 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const t = (keyPath: string): string => {
     const keys = keyPath.split('.');
-    let current: any = locales[lang];
+    let current: unknown = locales[lang];
     for (const key of keys) {
-      if (current[key] === undefined) {
-        return keyPath; // fallback
+      if (typeof current === 'object' && current !== null && key in current) {
+        current = (current as Record<string, unknown>)[key];
+      } else {
+        return keyPath;
       }
-      current = current[key];
     }
-    return current;
+    return typeof current === 'string' ? current : keyPath;
   };
 
   return (
@@ -49,6 +50,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
   if (!context) {
