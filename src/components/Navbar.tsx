@@ -69,7 +69,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.1 }}
               className="h-11 w-11 overflow-hidden rounded-full shadow-lg ring-2 ring-gold/30"
             >
-              <img src={logo} alt="Imperial Kids" className="h-full w-full object-cover" />
+              <img src={logo} alt="Imperial Kids" className="h-full w-full object-cover" fetchPriority="high" loading="eager" />
             </motion.div>
             <span className="font-heading text-xl font-bold text-royal lg:text-2xl">
               Imperial <span className="text-gold">Kids</span>

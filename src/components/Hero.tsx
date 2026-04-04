@@ -154,7 +154,7 @@ export default function Hero() {
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                   className="h-32 w-32 overflow-hidden rounded-full shadow-2xl shadow-gold/30 ring-4 ring-gold/30"
                 >
-                  <img src={logo} alt="Imperial Kids" className="h-full w-full object-cover" />
+                  <img src={logo} alt="Imperial Kids" className="h-full w-full object-cover" fetchPriority="high" loading="eager" />
                 </motion.div>
                 <p className="font-heading text-xl font-bold text-royal">{t('hero.circle_title')}</p>
               </div>
