@@ -66,7 +66,7 @@ export const uz = {
     p6_title: "5 Mahal Ovqatlanish",
     p6_desc: "Bolalar uchun maxsus ishlab chiqilgan menyu — kun davomida 5 mahal to'yimli, vitaminlarga boy va sog'lom ovqatlanish ta'minlanadi.",
     p6_f1: "Nonushta", p6_f2: "Ikkinchi nonushta", p6_f3: "Tushlik", p6_f4: "Poldnik", p6_f5: "Kechki ovqat",
-    sch_weekdays: "Dushanba – Juma",
+    sch_weekdays: "Dushanba – Shanba",
     sch_weekly: "Haftalik jadval",
     sch_twice: "Haftada 2 marta",
     sch_daily: "Har kuni",

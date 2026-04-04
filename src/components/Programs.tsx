@@ -50,7 +50,7 @@ const programKeys = [
     border: 'border-bordo-800',
     iconBg: 'bg-bordo-light',
     features: ['p4_f1', 'p4_f2', 'p4_f3', 'p4_f4'],
-    schedule: 'sch_weekly',
+    schedule: 'sch_weekdays',
     ratio: 'ratio_logo',
   },
   {
@@ -61,7 +61,7 @@ const programKeys = [
     border: 'border-bordo-800',
     iconBg: 'bg-bordo-light',
     features: ['p5_f1', 'p5_f2', 'p5_f3', 'p5_f4'],
-    schedule: 'sch_twice',
+    schedule: 'sch_weekdays',
     ratio: 'ratio_chef',
   },
   {
@@ -72,7 +72,7 @@ const programKeys = [
     border: 'border-bordo-800',
     iconBg: 'bg-bordo-light',
     features: ['p6_f1', 'p6_f2', 'p6_f3', 'p6_f4', 'p6_f5'],
-    schedule: 'sch_daily',
+    schedule: 'sch_weekdays',
     ratio: 'ratio_dietary',
   },
 ];
