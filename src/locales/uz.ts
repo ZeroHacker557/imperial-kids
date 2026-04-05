@@ -116,6 +116,10 @@ export const uz = {
     schedule: "Dush – Juma: 7:30 – 19:00\nShanba: 08:00 – 17:00",
     btn_call: "Qo'ng'iroq qilish",
     btn_tg: "Telegram orqali yozish",
-    rights: "Imperial Kids. Barcha huquqlar himoyalangan."
+    rights: "Imperial Kids. Barcha huquqlar himoyalangan.",
+    msg_title: "Ma'muriyatga yozish",
+    msg_desc: "Savollaringiz yoki takliflaringiz bo'lsa, bizga yozing. Tez orada sizga javob beramiz.",
+    input_msg: "Xabaringiz",
+    btn_close: "Yopish"
   }
 };

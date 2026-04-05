@@ -4,11 +4,11 @@ import logo from '../assets/images/logo.jpg';
 import { useLanguage } from '../context/LanguageContext';
 
 const floatingIcons = [
-  { Icon: Star, color: '#E2B764', x: '10%', y: '20%', size: 28, delay: 0 },
-  { Icon: Heart, color: '#F6CACC', x: '80%', y: '15%', size: 24, delay: 1.2 },
-  { Icon: Crown, color: '#FDF2F4', x: '70%', y: '75%', size: 30, delay: 0.6 },
-  { Icon: Palette, color: '#F2DFA7', x: '15%', y: '70%', size: 26, delay: 1.8 },
-  { Icon: Sparkles, color: '#FBE5E9', x: '90%', y: '50%', size: 22, delay: 2.4 },
+  { Icon: Star, color: '#FFD700', x: '10%', y: '20%', size: 28, delay: 0 },
+  { Icon: Heart, color: '#FFC0CB', x: '80%', y: '15%', size: 24, delay: 1.2 },
+  { Icon: Crown, color: '#FFFFFF', x: '70%', y: '75%', size: 30, delay: 0.6 },
+  { Icon: Palette, color: '#FFE44D', x: '15%', y: '70%', size: 26, delay: 1.8 },
+  { Icon: Sparkles, color: '#FFFFFF', x: '90%', y: '50%', size: 22, delay: 2.4 },
 ];
 
 export default function Hero() {
@@ -16,12 +16,13 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-gradient-to-br from-bordo-950 via-bordo-900 to-bordo-800 pt-24 pb-16"
+      className="relative min-h-screen overflow-hidden pt-24 pb-16"
+      style={{ background: 'linear-gradient(135deg, #B3001B 0%, #8A0015 40%, #6B0011 100%)' }}
     >
       {/* Decorative blobs */}
-      <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
-      <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-bordo-50/5 blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-bordo/10 blur-3xl" />
+      <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
+      <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-3xl" />
 
       {/* Floating icons */}
       {floatingIcons.map(({ Icon, color, x, y, size, delay }, i) => (
@@ -43,9 +44,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-4 inline-flex items-center gap-2 rounded-full bg-bordo-light/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white/90"
+            className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white/90"
           >
-            <Crown size={14} className="text-accent" />
+            <Crown size={14} className="text-yellow-300" />
             {t('hero.badge')}
           </motion.div>
 
@@ -57,13 +58,13 @@ export default function Hero() {
           >
             {t('hero.title_1')}{' '}
             <span className="relative inline-block">
-              <span className="text-gradient">{t('hero.title_2')}</span>
+              <span className="text-yellow-300">{t('hero.title_2')}</span>
               <motion.span
                 className="absolute -right-6 -top-4"
                 animate={{ rotate: [0, 15, -15, 0], scale: [1, 1.2, 1] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <Sparkles size={24} className="text-accent" />
+                <Sparkles size={24} className="text-yellow-300" />
               </motion.span>
             </span>{' '}
             {t('hero.title_3')}
@@ -73,7 +74,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-gray-300 sm:text-lg lg:mx-0"
+            className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg lg:mx-0"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -89,7 +90,7 @@ export default function Hero() {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-2 rounded-full bg-gradient-to-r from-bordo to-bordo-light px-8 py-4 text-sm font-bold text-white shadow-xl shadow-bordo/25 transition hover:shadow-2xl hover:shadow-bordo/35"
+              className="group flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-bordo shadow-xl transition hover:shadow-2xl hover:bg-gray-50"
             >
               {t('hero.enroll_btn')}
               <ArrowRight size={16} className="transition group-hover:translate-x-1" />
@@ -99,35 +100,14 @@ export default function Hero() {
               href="#programs"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 rounded-full border-2 border-accent/40 bg-bordo-950/60 px-8 py-4 text-sm font-bold text-white backdrop-blur transition hover:border-accent hover:bg-accent/10"
+              className="flex items-center gap-2 rounded-full border-2 border-white/40 px-8 py-4 text-sm font-bold text-white backdrop-blur transition hover:border-white hover:bg-white/10"
             >
               {t('hero.explore_btn')}
-              <Sparkles size={16} className="text-accent" />
+              <Sparkles size={16} className="text-yellow-300" />
             </motion.a>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-            className="mt-12 flex items-center justify-center gap-8 lg:justify-start"
-          >
-            {[
-              { num: '7+', label: t('hero.stat_1') },
-              { num: '5x', label: t('hero.stat_2') },
-              { num: '50+', label: t('hero.stat_3') },
-            ].map((stat) => (
-               <div key={stat.label} className="text-center">
-                <div className="font-heading text-2xl font-extrabold text-white sm:text-3xl">
-                  {stat.num}
-                </div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </motion.div>
+
         </div>
 
         {/* Illustration side */}
@@ -143,16 +123,16 @@ export default function Hero() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-              className="absolute inset-0 rounded-full border-2 border-dashed border-accent/40"
+              className="absolute inset-0 rounded-full border-2 border-dashed border-white/25"
             />
 
             {/* Main blob */}
-            <div className="absolute inset-4 flex items-center justify-center rounded-full bg-gradient-to-br from-white/5 via-accent/10 to-bordo-50/10">
+            <div className="absolute inset-4 flex items-center justify-center rounded-full bg-white/10">
               <div className="flex flex-col items-center gap-4">
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                  className="h-32 w-32 overflow-hidden rounded-full shadow-2xl shadow-accent/30 ring-4 ring-accent/30"
+                  className="h-32 w-32 overflow-hidden rounded-full shadow-2xl shadow-black/20 ring-4 ring-white/30"
                 >
                   <img src={logo} alt="Imperial Kids" className="h-full w-full object-cover" fetchPriority="high" loading="eager" />
                 </motion.div>
@@ -162,11 +142,11 @@ export default function Hero() {
 
             {/* Orbiting elements */}
             {[
-              { Icon: Book, angle: 0, dist: 190, color: '#A10B0B' },
-              { Icon: Palette, angle: 72, dist: 200, color: '#F43F5E' },
-              { Icon: Star, angle: 144, dist: 185, color: '#E2B764' },
-              { Icon: TrendingUp, angle: 216, dist: 195, color: '#B8924B' },
-              { Icon: Music, angle: 288, dist: 190, color: '#F6CACC' },
+              { Icon: Book, angle: 0, dist: 190, color: '#FFFFFF' },
+              { Icon: Palette, angle: 72, dist: 200, color: '#FFD700' },
+              { Icon: Star, angle: 144, dist: 185, color: '#FFFFFF' },
+              { Icon: TrendingUp, angle: 216, dist: 195, color: '#FFE44D' },
+              { Icon: Music, angle: 288, dist: 190, color: '#FFFFFF' },
             ].map(({ Icon, angle, dist, color }, i) => {
               const rad = (angle * Math.PI) / 180;
               const x = Math.cos(rad) * dist;
@@ -174,7 +154,7 @@ export default function Hero() {
               return (
                 <motion.div
                   key={i}
-                  className="absolute left-1/2 top-1/2 flex h-14 w-14 items-center justify-center rounded-2xl bg-bordo-900 border border-bordo-surface border-white/5 shadow-lg"
+                  className="absolute left-1/2 top-1/2 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 border border-white/10 shadow-lg"
                   style={{ x: x - 28, y: y - 28, color: color }}
                   animate={{ y: [y - 28, y - 38, y - 28], scale: [1, 1.1, 1] }}
                   transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
@@ -192,7 +172,7 @@ export default function Hero() {
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
           <path
             d="M0 60L48 52C96 44 192 28 288 24C384 20 480 28 576 40C672 52 768 68 864 72C960 76 1056 68 1152 56C1248 44 1344 28 1392 20L1440 12V120H1392C1344 120 1248 120 1152 120C1056 120 960 120 864 120C768 120 672 120 576 120C480 120 384 120 288 120C192 120 96 120 48 120H0V60Z"
-            className="fill-bordo-950"
+            fill="#FFFFFF"
           />
         </svg>
       </div>

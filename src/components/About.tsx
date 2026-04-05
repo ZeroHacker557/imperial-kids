@@ -8,44 +8,32 @@ const featureKeys = [
   {
     icon: ShieldCheck,
     key: 'f1',
-    color: 'bg-bordo-900',
-    iconColor: 'text-emerald-400',
-    borderColor: 'border-bordo-700',
+    iconColor: 'text-emerald-500',
   },
   {
     icon: GraduationCap,
     key: 'f2',
-    color: 'bg-bordo-900',
-    iconColor: 'text-blue-400',
-    borderColor: 'border-bordo-700',
+    iconColor: 'text-blue-500',
   },
   {
     icon: BookOpen,
     key: 'f3',
-    color: 'bg-bordo-900',
-    iconColor: 'text-purple-400',
-    borderColor: 'border-bordo-700',
+    iconColor: 'text-purple-500',
   },
   {
     icon: Heart,
     key: 'f4',
-    color: 'bg-bordo-900',
-    iconColor: 'text-rose-400',
-    borderColor: 'border-bordo-700',
+    iconColor: 'text-rose-500',
   },
   {
     icon: Users,
     key: 'f5',
-    color: 'bg-bordo-900',
-    iconColor: 'text-orange-400',
-    borderColor: 'border-bordo-700',
+    iconColor: 'text-orange-500',
   },
   {
     icon: Utensils,
     key: 'f6',
-    color: 'bg-bordo-900',
-    iconColor: 'text-amber-400',
-    borderColor: 'border-bordo-700',
+    iconColor: 'text-amber-500',
   },
 ];
 
@@ -67,19 +55,19 @@ function FeatureCard({
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ scale: 1.03, y: -6 }}
-      className={`group relative overflow-hidden rounded-3xl border ${feature.borderColor} ${feature.color} p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-bordo-900/50`}
+      className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-bordo/5"
     >
       {/* Decorative circle */}
-      <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/5" />
+      <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-bordo-50" />
 
       <motion.div
         whileHover={{ rotate: 10 }}
-        className={`mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-bordo-800 shadow-sm ${feature.iconColor}`}
+        className={`mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-50 shadow-sm ${feature.iconColor}`}
       >
         <feature.icon size={28} />
       </motion.div>
-      <h3 className="mb-3 font-heading text-xl font-bold text-white">{t(`about.${feature.key}_title`)}</h3>
-      <p className="text-sm leading-relaxed text-gray-300">{t(`about.${feature.key}_desc`)}</p>
+      <h3 className="mb-3 font-heading text-xl font-bold text-black">{t(`about.${feature.key}_title`)}</h3>
+      <p className="text-sm leading-relaxed text-gray-500">{t(`about.${feature.key}_desc`)}</p>
     </motion.div>
   );
 }
@@ -90,7 +78,7 @@ export default function About() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="relative bg-bordo-950 section-padding">
+    <section id="about" className="relative bg-white section-padding">
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
         <motion.div
@@ -100,14 +88,14 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-3 inline-block rounded-full bg-accent/15 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-accent">
+          <span className="mb-3 inline-block rounded-full bg-bordo-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-bordo">
             {t('about.badge')}
           </span>
-          <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl md:text-5xl">
+          <h2 className="font-heading text-3xl font-extrabold text-black sm:text-4xl md:text-5xl">
             {t('about.title_1')}{' '}
             <span className="text-gradient">{t('about.title_val')}</span> {t('about.title_2')}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-gray-400 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-gray-500 sm:text-lg">
             {t('about.subtitle')}
           </p>
         </motion.div>

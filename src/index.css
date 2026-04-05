@@ -2,30 +2,33 @@
 
 /* ═══════════════════════════════════════════════════════════
    Imperial Kids — Design Tokens & Global Styles
+   Brand: White + Deep Red (#B3001B) + Black + Yellow Accent
    ═══════════════════════════════════════════════════════════ */
 
 @theme {
-  /* ── Colors ── */
-  --color-bordo: #8B0000;
-  --color-bordo-light: #A10B0B;
-  --color-bordo-dark: #5C0000;
-  --color-bordo-50: #FDF2F4;
-  --color-bordo-100: #FBE5E9;
-  --color-bordo-200: #F6CACC;
-  --color-bordo-700: #7A0000;
-  --color-bordo-800: #4A0000;
-  --color-bordo-900: #2A0000;
-  --color-bordo-950: #1A0000;
-  
-  --color-accent: #E2B764;
-  --color-accent-light: #F2DFA7;
-  --color-accent-dark: #B8924B;
-  
-  --color-surface: #360505;
-  --color-surface-hover: #450808;
+  /* ── Primary Red ── */
+  --color-bordo: #B3001B;
+  --color-bordo-light: #CC1A33;
+  --color-bordo-dark: #8A0015;
+  --color-bordo-50: #FEF2F3;
+  --color-bordo-100: #FDE3E6;
+  --color-bordo-200: #FCC8CE;
+  --color-bordo-700: #9A0017;
+  --color-bordo-800: #7A0012;
+  --color-bordo-900: #F9F9F9;
+  --color-bordo-950: #FFFFFF;
+
+  /* ── Accent (Yellow — used sparingly) ── */
+  --color-accent: #FFD700;
+  --color-accent-light: #FFE44D;
+  --color-accent-dark: #E6C200;
+
+  /* ── Surface (for cards, nav panels) ── */
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F5F5F5;
 
   /* ── Fonts ── */
-  --font-heading: 'Baloo 2', cursive;
+  --font-heading: 'Nunito', sans-serif;
   --font-body: 'Nunito', sans-serif;
 
   /* ── Border Radius ── */
@@ -46,8 +49,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: #F3F4F6;
-  background-color: var(--color-bordo-950);
+  color: #333333;
+  background-color: #FFFFFF;
   overflow-x: hidden;
 }
 
@@ -60,10 +63,10 @@ h1, h2, h3, h4, h5, h6 {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-bordo-950);
+  background: #F5F5F5;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--color-bordo), var(--color-bordo-800));
+  background: linear-gradient(180deg, var(--color-bordo), var(--color-bordo-dark));
   border-radius: 100px;
 }
 
@@ -73,17 +76,17 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFFFF;
 }
 
-/* ── Glassmorphism utility ── */
+/* ── Glassmorphism utility (now white-based) ── */
 .glass {
-  background: rgba(26, 0, 0, 0.72);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 /* ── Gradient text ── */
 .text-gradient {
-  background: linear-gradient(135deg, #F6CACC 0%, #A10B0B 100%);
+  background: linear-gradient(135deg, #B3001B 0%, #CC1A33 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -106,8 +109,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.4); }
-  50% { box-shadow: 0 0 0 12px rgba(139, 0, 0, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(179, 0, 27, 0.3); }
+  50% { box-shadow: 0 0 0 12px rgba(179, 0, 27, 0); }
 }
 
 .animate-float {

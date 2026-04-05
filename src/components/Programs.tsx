@@ -12,9 +12,6 @@ const programKeys = [
     badgeIcons: [Calculator, Languages],
     icon: Calculator,
     icon2: Languages,
-    gradient: 'from-bordo-900 to-bordo-950',
-    border: 'border-bordo-800',
-    iconBg: 'bg-bordo-light',
     features: ['p1_f1', 'p1_f2', 'p1_f3', 'p1_f4'],
     schedule: 'sch_weekdays',
     ratio: 'ratio_teachers',
@@ -23,9 +20,6 @@ const programKeys = [
     key: 'p2',
     badgeIcons: [Dumbbell, Activity],
     icon: Dumbbell,
-    gradient: 'from-bordo-900 to-bordo-950',
-    border: 'border-bordo-800',
-    iconBg: 'bg-bordo-light',
     features: ['p2_f1', 'p2_f2', 'p2_f3', 'p2_f4'],
     schedule: 'sch_weekdays',
     ratio: 'ratio_trainers',
@@ -35,9 +29,6 @@ const programKeys = [
     badgeIcons: [Palette, Mic],
     icon: Palette,
     icon2: Mic,
-    gradient: 'from-bordo-900 to-bordo-950',
-    border: 'border-bordo-800',
-    iconBg: 'bg-bordo-light',
     features: ['p3_f1', 'p3_f2', 'p3_f3', 'p3_f4'],
     schedule: 'sch_weekdays',
     ratio: 'ratio_artists',
@@ -46,9 +37,6 @@ const programKeys = [
     key: 'p4',
     badgeIcons: [MessageCircle],
     icon: MessageCircle,
-    gradient: 'from-bordo-900 to-bordo-950',
-    border: 'border-bordo-800',
-    iconBg: 'bg-bordo-light',
     features: ['p4_f1', 'p4_f2', 'p4_f3', 'p4_f4'],
     schedule: 'sch_weekdays',
     ratio: 'ratio_logo',
@@ -57,9 +45,6 @@ const programKeys = [
     key: 'p5',
     badgeIcons: [ChefHat],
     icon: ChefHat,
-    gradient: 'from-bordo-900 to-bordo-950',
-    border: 'border-bordo-800',
-    iconBg: 'bg-bordo-light',
     features: ['p5_f1', 'p5_f2', 'p5_f3', 'p5_f4'],
     schedule: 'sch_weekdays',
     ratio: 'ratio_chef',
@@ -68,9 +53,6 @@ const programKeys = [
     key: 'p6',
     badgeIcons: [Salad],
     icon: Star,
-    gradient: 'from-bordo-900 to-bordo-950',
-    border: 'border-bordo-800',
-    iconBg: 'bg-bordo-light',
     features: ['p6_f1', 'p6_f2', 'p6_f3', 'p6_f4', 'p6_f5'],
     schedule: 'sch_weekdays',
     ratio: 'ratio_dietary',
@@ -95,33 +77,33 @@ function ProgramCard({
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.1 }}
       whileHover={{ scale: 1.03, y: -8 }}
-      className={`group relative overflow-hidden rounded-3xl border ${program.border} bg-gradient-to-br ${program.gradient} p-1 shadow-sm transition-shadow duration-300 hover:shadow-2xl hover:shadow-bordo-950/40`}
+      className="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-1 shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-bordo/5"
     >
-      <div className="rounded-[1.3rem] bg-bordo-950/80 backdrop-blur-sm p-7 h-full flex flex-col">
+      <div className="rounded-[1.3rem] bg-white p-7 h-full flex flex-col">
         {/* Header */}
         <div className="flex items-start justify-between mb-5">
           <motion.div
             whileHover={{ rotate: 15 }}
-            className={`flex h-14 w-14 items-center justify-center rounded-2xl ${program.iconBg} text-white shadow-lg`}
+            className="flex h-14 w-14 items-center justify-center rounded-2xl bg-bordo text-white shadow-lg shadow-bordo/20"
           >
             <program.icon size={28} />
           </motion.div>
-          <span className="flex items-center gap-1.5 rounded-full bg-accent/15 px-3 py-1 text-xs font-bold text-accent">
+          <span className="flex items-center gap-1.5 rounded-full bg-bordo-50 px-3 py-1 text-xs font-bold text-bordo">
             {program.badgeIcons && program.badgeIcons.map((IconComp, idx) => (
-              <IconComp key={idx} size={14} className="text-accent" />
+              <IconComp key={idx} size={14} className="text-bordo" />
             ))}
           </span>
         </div>
 
-        <h3 className="mb-2 font-heading text-2xl font-bold text-white">{t(`programs.${program.key}_title`)}</h3>
-        <p className="mb-5 text-sm leading-relaxed text-gray-300">{t(`programs.${program.key}_desc`)}</p>
+        <h3 className="mb-2 font-heading text-2xl font-bold text-black">{t(`programs.${program.key}_title`)}</h3>
+        <p className="mb-5 text-sm leading-relaxed text-gray-500">{t(`programs.${program.key}_desc`)}</p>
 
         {/* Features */}
         <div className="mb-5 flex flex-wrap gap-2">
           {program.features.map((fKey) => (
             <span
               key={fKey}
-              className="rounded-full bg-bordo-800/80 px-3 py-1 text-xs font-semibold text-gray-300 shadow-sm"
+              className="rounded-full bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-600 shadow-sm border border-gray-100"
             >
               {t(`programs.${fKey}`)}
             </span>
@@ -129,7 +111,7 @@ function ProgramCard({
         </div>
 
         {/* Meta */}
-        <div className="mt-auto space-y-2 border-t border-bordo-700/60 pt-4">
+        <div className="mt-auto space-y-2 border-t border-gray-100 pt-4">
           <div className="flex items-center gap-2 text-xs text-gray-400">
             <Clock size={14} />
             <span>{t(`programs.${program.schedule}`)}</span>
@@ -145,7 +127,7 @@ function ProgramCard({
           href="#contact"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="mt-5 flex items-center justify-center gap-2 rounded-2xl bg-bordo py-3 text-sm font-bold text-white shadow-md transition hover:bg-bordo-light hover:shadow-lg"
+          className="mt-5 flex items-center justify-center gap-2 rounded-2xl bg-bordo py-3 text-sm font-bold text-white shadow-md transition hover:bg-bordo-dark hover:shadow-lg"
         >
           {t('programs.btn_more')} <ArrowRight size={14} />
         </motion.a>
@@ -162,11 +144,11 @@ export default function Programs() {
   return (
     <section
       id="programs"
-      className="relative overflow-hidden bg-gradient-to-b from-bordo-950 to-bordo-900 section-padding"
+      className="relative overflow-hidden bg-gray-50 section-padding"
     >
       {/* Decorative */}
-      <div className="absolute -left-20 top-20 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
-      <div className="absolute -right-20 bottom-20 h-64 w-64 rounded-full bg-bordo-50/5 blur-3xl" />
+      <div className="absolute -left-20 top-20 h-64 w-64 rounded-full bg-bordo/5 blur-3xl" />
+      <div className="absolute -right-20 bottom-20 h-64 w-64 rounded-full bg-bordo-50/50 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Heading */}
@@ -177,14 +159,14 @@ export default function Programs() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <span className="mb-3 inline-block rounded-full bg-bordo-light/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white">
+          <span className="mb-3 inline-block rounded-full bg-bordo-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-bordo">
             {t('programs.badge')}
           </span>
-          <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl md:text-5xl">
+          <h2 className="font-heading text-3xl font-extrabold text-black sm:text-4xl md:text-5xl">
             {t('programs.title_1')}{' '}
             <span className="text-gradient">{t('programs.title_val')}</span> {t('programs.title_2')}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-gray-400 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-gray-500 sm:text-lg">
             {t('programs.subtitle')}
           </p>
         </motion.div>
@@ -202,9 +184,9 @@ export default function Programs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-12 flex items-center justify-center gap-2 text-sm text-gray-400"
+          className="mt-12 flex items-center justify-center gap-2 text-sm text-gray-500"
         >
-          <Star size={16} className="text-accent" />
+          <Star size={16} className="text-yellow-500" />
           <span>{t('programs.bottom_badge')}</span>
         </motion.div>
       </div>

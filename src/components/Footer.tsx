@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
 import {
   MapPin,
@@ -9,8 +9,10 @@ import {
   MessageCircle,
   Crown,
   Loader2,
+  X,
 } from 'lucide-react';
 import logo from '../assets/images/logo.jpg';
+import slogo from '../assets/images/slogo.png';
 import { useLanguage } from '../context/LanguageContext';
 
 /* Custom social SVG icons */
@@ -51,6 +53,10 @@ export default function Footer() {
   const [phone, setPhone] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isMsgModalOpen, setIsMsgModalOpen] = useState(false);
+  const [msgText, setMsgText] = useState('');
+  const [msgLoading, setMsgLoading] = useState(false);
+  const [msgSubscribed, setMsgSubscribed] = useState(false);
   const { t } = useLanguage();
 
   const handleEnrollment = async (e: React.FormEvent) => {
@@ -89,23 +95,61 @@ export default function Footer() {
     }
   };
 
+  const handleMessageSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!msgText) return;
+
+    setMsgLoading(true);
+    const token = '8618409307:AAE6BgQub6at_MWHvuig1HFUwN578pnDaBQ';
+    const chatIds = ['8182618985', '7203124812'];
+    const text = `✉️ <b>Yangi anonim xabar (Ma'muriyatga)</b>\n\n💬 Xabar: ${msgText}`;
+
+    try {
+      await Promise.all(
+        chatIds.map(chatId =>
+          fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              chat_id: chatId,
+              text: text,
+              parse_mode: 'HTML',
+            }),
+          })
+        )
+      );
+      setMsgSubscribed(true);
+      setMsgText('');
+      setTimeout(() => {
+        setMsgSubscribed(false);
+        setIsMsgModalOpen(false);
+      }, 3000);
+    } catch (error) {
+      console.error('Xatolik:', error);
+    } finally {
+      setMsgLoading(false);
+    }
+  };
+
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer id="contact" className="relative overflow-hidden bg-bordo-900 pt-20 pb-8 text-white/90">
+    <footer id="contact" className="relative overflow-hidden bg-black pt-20 pb-8 text-white/90">
       {/* Decorative top wave */}
       <div className="absolute -top-1 left-0 right-0">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
           <path
             d="M0 40L60 35C120 30 240 20 360 18C480 16 600 22 720 30C840 38 960 48 1080 50C1200 52 1320 46 1380 43L1440 40V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V40Z"
-            className="fill-bordo-950"
+            className="fill-gray-50"
           />
         </svg>
       </div>
 
       {/* Glow orbs */}
-      <div className="absolute left-0 top-1/3 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
-      <div className="absolute right-0 bottom-1/3 h-64 w-64 rounded-full bg-bordo-light/10 blur-3xl" />
+      <div className="absolute left-0 top-1/3 h-64 w-64 rounded-full bg-bordo/10 blur-3xl" />
+      <div className="absolute right-0 bottom-1/3 h-64 w-64 rounded-full bg-bordo/5 blur-3xl" />
 
       <div ref={ref} className="relative z-10 mx-auto max-w-7xl px-5 lg:px-8">
         {/* Newsletter */}
@@ -116,7 +160,7 @@ export default function Footer() {
           className="mb-16 rounded-3xl bg-white/10 p-8 text-center backdrop-blur sm:p-12"
         >
           <h3 className="mb-3 flex items-center justify-center gap-2 font-heading text-2xl font-bold text-white sm:text-3xl">
-            {t('footer.enroll_title')} <Crown className="text-accent" />
+            {t('footer.enroll_title')} <Crown className="text-yellow-400" />
           </h3>
           <p className="mx-auto mb-6 max-w-md text-sm text-white/70">
             {t('footer.enroll_desc')}
@@ -133,7 +177,7 @@ export default function Footer() {
                 onChange={(e) => setName(e.target.value)}
                 placeholder={t('footer.input_name')}
                 required
-                className="flex-1 rounded-full bg-white/15 px-6 py-3.5 text-sm text-white placeholder-white/50 outline-none ring-1 ring-white/20 transition focus:ring-accent"
+                className="flex-1 rounded-full bg-white/15 px-6 py-3.5 text-sm text-white placeholder-white/50 outline-none ring-1 ring-white/20 transition focus:ring-bordo"
               />
               <input
                 id="enroll-phone"
@@ -142,7 +186,7 @@ export default function Footer() {
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder={t('footer.input_phone')}
                 required
-                className="flex-1 rounded-full bg-white/15 px-6 py-3.5 text-sm text-white placeholder-white/50 outline-none ring-1 ring-white/20 transition focus:ring-accent"
+                className="flex-1 rounded-full bg-white/15 px-6 py-3.5 text-sm text-white placeholder-white/50 outline-none ring-1 ring-white/20 transition focus:ring-bordo"
               />
             </div>
             <motion.button
@@ -151,7 +195,7 @@ export default function Footer() {
               disabled={loading}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="mt-2 mx-auto flex sm:w-auto w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-bordo to-bordo-light px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-bordo/25 transition hover:shadow-xl disabled:opacity-75"
+              className="mt-2 mx-auto flex sm:w-auto w-full items-center justify-center gap-2 rounded-full bg-bordo px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-bordo/25 transition hover:bg-bordo-dark hover:shadow-xl disabled:opacity-75"
             >
               {loading ? (
                 <><Loader2 size={16} className="animate-spin" /> {t('footer.btn_sending')}</>
@@ -173,12 +217,10 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div className="mb-4 flex items-center gap-3">
-              <div className="h-12 w-12 overflow-hidden rounded-full ring-2 ring-accent/40 shadow-lg">
+              <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full ring-2 ring-bordo/40 shadow-lg">
                 <img src={logo} alt="Imperial Kids" className="h-full w-full object-cover" />
               </div>
-              <span className="font-heading text-xl font-bold">
-                Imperial <span className="text-accent">Kids</span>
-              </span>
+              <img src={slogo} alt="Imperial Kids" className="h-5 sm:h-6 w-auto object-contain" />
             </div>
             <p className="mb-5 text-sm leading-relaxed text-white/60">
               {t('footer.brand_desc')}
@@ -187,12 +229,13 @@ export default function Footer() {
               {socials.map(({ icon: Icon, href, label }) => (
                 <motion.a
                   key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={label === 'Admin' ? '#' : href}
+                  target={label === 'Admin' ? '_self' : '_blank'}
+                  rel={label === 'Admin' ? '' : 'noopener noreferrer'}
+                  onClick={label === 'Admin' ? (e) => { e.preventDefault(); setIsMsgModalOpen(true); } : undefined}
                   aria-label={label}
                   whileHover={{ scale: 1.15, y: -3 }}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-accent hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-bordo hover:text-white"
                 >
                   <Icon size={18} />
                 </motion.a>
@@ -212,7 +255,7 @@ export default function Footer() {
                 <li key={link.key}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/60 transition hover:text-accent hover:translate-x-1 inline-block"
+                    className="text-sm text-white/60 transition hover:text-bordo-light hover:translate-x-1 inline-block"
                   >
                     {t(link.key)}
                   </a>
@@ -233,7 +276,7 @@ export default function Footer() {
                 <li key={link.key}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/60 transition hover:text-accent hover:translate-x-1 inline-block"
+                    className="text-sm text-white/60 transition hover:text-bordo-light hover:translate-x-1 inline-block"
                   >
                     {t(link.key)}
                   </a>
@@ -251,29 +294,29 @@ export default function Footer() {
             <h4 className="mb-4 font-heading text-lg font-bold text-white">{t('footer.contact')}</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-white/60">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-accent" />
+                <MapPin size={16} className="mt-0.5 shrink-0 text-bordo-light" />
                 <span>{t('footer.address')}</span>
               </li>
               <li>
-                <a href="tel:+998951850900" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-accent">
-                  <Phone size={16} className="shrink-0 text-accent" />
+                <a href="tel:+998951850900" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-bordo-light">
+                  <Phone size={16} className="shrink-0 text-bordo-light" />
                   <span>+998 95 185 09 00</span>
                 </a>
               </li>
               <li>
-                <a href="tel:+998555180900" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-accent">
-                  <Phone size={16} className="shrink-0 text-accent" />
+                <a href="tel:+998555180900" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-bordo-light">
+                  <Phone size={16} className="shrink-0 text-bordo-light" />
                   <span>+998 55 518 09 00</span>
                 </a>
               </li>
               <li>
-                <a href="https://t.me/imperialkids_admin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-accent">
-                  <MessageCircle size={16} className="shrink-0 text-accent" />
+                <a href="https://t.me/imperialkids_admin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-white/60 transition hover:text-bordo-light">
+                  <MessageCircle size={16} className="shrink-0 text-bordo-light" />
                   <span>@imperialkids_admin</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-white/60">
-                <Clock size={16} className="mt-0.5 shrink-0 text-accent" />
+                <Clock size={16} className="mt-0.5 shrink-0 text-bordo-light" />
                 <span className="whitespace-pre-line">{t('footer.schedule')}</span>
               </li>
             </ul>
@@ -307,7 +350,7 @@ export default function Footer() {
             href="tel:+998951850900"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-bordo to-bordo-light px-6 py-3 text-sm font-bold text-white shadow-lg shadow-bordo/25"
+            className="flex items-center gap-2 rounded-full bg-bordo px-6 py-3 text-sm font-bold text-white shadow-lg shadow-bordo/25"
           >
             <Phone size={16} />
             {t('footer.btn_call')}
@@ -344,12 +387,73 @@ export default function Footer() {
           <motion.button
             onClick={scrollToTop}
             whileHover={{ scale: 1.1, y: -3 }}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-bordo-950 shadow-lg transition hover:shadow-xl"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-bordo text-white shadow-lg transition hover:shadow-xl"
           >
             <ArrowUp size={18} />
           </motion.button>
         </div>
       </div>
+
+      {/* Message Modal */}
+      <AnimatePresence>
+        {isMsgModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMsgModalOpen(false)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-md overflow-hidden rounded-3xl bg-zinc-900 border border-white/10 p-6 shadow-2xl sm:p-8"
+            >
+              <button
+                onClick={() => setIsMsgModalOpen(false)}
+                className="absolute right-4 top-4 rounded-full p-2 text-white/50 transition hover:bg-white/10 hover:text-white"
+              >
+                <X size={20} />
+              </button>
+              
+              <h3 className="mb-2 text-xl font-bold text-white sm:text-2xl font-heading">
+                {t('footer.msg_title')}
+              </h3>
+              <p className="mb-6 text-sm text-white/70">
+                {t('footer.msg_desc')}
+              </p>
+
+              <form onSubmit={handleMessageSubmit} className="flex flex-col gap-4">
+                <textarea
+                  value={msgText}
+                  onChange={(e) => setMsgText(e.target.value)}
+                  placeholder={t('footer.input_msg')}
+                  required
+                  rows={4}
+                  className="w-full rounded-2xl bg-white/5 px-5 py-3 text-sm text-white placeholder-white/50 outline-none ring-1 ring-white/20 transition focus:ring-bordo resize-none"
+                />
+                <motion.button
+                  type="submit"
+                  disabled={msgLoading}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full flex items-center justify-center gap-2 rounded-2xl bg-bordo px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-bordo/25 transition hover:bg-bordo-dark hover:shadow-xl disabled:opacity-75"
+                >
+                  {msgLoading ? (
+                    <><Loader2 size={16} className="animate-spin" /> {t('footer.btn_sending')}</>
+                  ) : msgSubscribed ? (
+                    t('footer.btn_success')
+                  ) : (
+                    <>{t('footer.btn_submit')} <Send size={16} /></>
+                  )}
+                </motion.button>
+              </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </footer>
   );
 }
