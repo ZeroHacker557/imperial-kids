@@ -122,8 +122,7 @@ export default function Testimonials() {
                 <testm.avatar size={24} />
               </div>
               <div>
-                <p className="font-heading font-bold text-black">{testm.name}</p>
-                <p className="text-xs text-gray-400">{t(`testimonials.${testm.key}_role`)}</p>
+                <p className="font-heading font-medium text-black">{t('testimonials.parent')}</p>
               </div>
             </div>
           </motion.div>

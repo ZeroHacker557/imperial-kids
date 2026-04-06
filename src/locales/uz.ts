@@ -89,16 +89,12 @@ export const uz = {
     title_1: "Ota-Onalar",
     title_val: "Nima Deydi",
     title_2: "",
-    t1_role: "Amir (4 yosh) onasi",
-    t1_text: "Imperial Kids bizning oilamiz uchun eng to'g'ri tanlov bo'ldi. Amir har kuni yangi narsalar o'rgangan holda uyga qaytadi. Tarbiyachilar juda mehribon va mas'uliyatli.",
-    t2_role: "Jasur (3 yosh) otasi",
-    t2_text: "Biz ko'plab bog'chalarni ko'rib chiqdik va Imperial Kids'ni tanladik. Sharoitlar ajoyib, dastur juda yaxshi tuzilgan. Jasurning o'ziga ishonchi juda kuchaydi.",
-    t3_role: "Malika (5 yosh) onasi",
-    t3_text: "Har bir bolaga individual yondashuv — bu Imperial Kids'ning eng kuchli tomoni. Malika boshida uyatchan edi, bir necha oy ichida guruhda yetakchilik qila boshladi.",
-    t4_role: "Doniyor (2 yosh) otasi",
-    t4_text: "Birinchi marta bolani bog'chaga berayotganimizda xavotirlanganmiz. Imperial Kids jarayonni juda yengil qildi. Kundalik yangiliklar va suratlar bizga to'liq ishonch beradi.",
-    t5_role: "Kamola (4 yosh) onasi",
-    t5_text: "Ta'lim va o'yin muvozanati mukammal. Kamolaning ingliz tili bilimi rivojlandi, taekvondo mashg'ulotlari esa uni intizomli qildi. Juda tavsiya qilaman!"
+    parent: "Ota-ona",
+    t1_text: "Viiy jonim tillarni 😍😍.uyga kelb ham ancha narsala etadgan bobdi rossa xursandmza .raxmat kattakon🤲😍.",
+    t2_text: "Узгариш жуда зур,Машааллох Аллох ажрицззи берсин,илохим,ишларицззи ривожини берсин,Богчайзга хам,хонадонийзга хам аллох Рахматини,ва баракотини йогдирсин.",
+    t3_text: "Барча Хожаройи богча опаларидан  хам миннаддорман.",
+    t4_text: "Аллохим куч кувват берсин ,осонмас ,сабр килиб ургатишяпти.",
+    t5_text: "Узимизи кулимиздан кемийди"
   },
   footer: {
     enroll_title: "Bog'chaga yozilish",
