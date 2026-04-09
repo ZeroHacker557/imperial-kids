@@ -126,10 +126,8 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.8, y: 30 }}
             animate={headingInView ? { opacity: 1, scale: 1, y: 0 } : {}}
             transition={{ duration: 0.8, type: 'spring', bounce: 0.4 }}
-            className="relative flex w-full justify-center lg:w-1/2 lg:justify-end cursor-grab active:cursor-grabbing pb-8 lg:pb-0"
-            drag
-            dragConstraints={{ left: -20, right: 20, top: -20, bottom: 20 }}
-            whileTap={{ scale: 0.95 }}
+            className="relative flex w-full justify-center lg:w-1/2 lg:justify-end pb-8 lg:pb-0"
+            whileHover={{ scale: 1.02 }}
           >
             {/* Background shape behind character */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -151,7 +149,8 @@ export default function About() {
               whileHover={{ scale: 1.05, rotate: 2 }}
               src={characterImg} 
               alt="Imperial Kids Mascot" 
-              className="relative z-10 w-56 sm:w-72 md:w-80 lg:w-[450px] object-contain drop-shadow-2xl hover:drop-shadow-[0_20px_40px_rgba(179,0,27,0.3)] transition-all duration-300"
+              draggable={false}
+              className="relative z-10 w-56 sm:w-72 md:w-80 lg:w-[450px] object-contain drop-shadow-2xl hover:drop-shadow-[0_20px_40px_rgba(179,0,27,0.3)] transition-all duration-300 pointer-events-none"
             />
             
             {/* Small floating decorative items */}

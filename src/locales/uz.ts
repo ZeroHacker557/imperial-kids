@@ -94,7 +94,12 @@ export const uz = {
     t2_text: "Узгариш жуда зур,Машааллох Аллох ажрицззи берсин,илохим,ишларицззи ривожини берсин,Богчайзга хам,хонадонийзга хам аллох Рахматини,ва баракотини йогдирсин.",
     t3_text: "Барча Хожаройи богча опаларидан  хам миннаддорман.",
     t4_text: "Аллохим куч кувват берсин ,осонмас ,сабр килиб ургатишяпти.",
-    t5_text: "Узимизи кулимиздан кемийди"
+    t5_text: "Узимизи кулимиздан кемийди",
+    t6_text: "Yashnobod tumanida yashovchilar uchun eng yaxshi bog'cha. Taomlari mazali, uyga xos. Tarbiyachilar juda mehribon. Bog'chada sport, karate, gimnastika, yozda hovuz bor. Toza, sharoitlar juda shinam. Yozda salqin, qishda issiq. Shunday qilib, barcha talablarga javob beradi.",
+    t7_text: "Yaxshi bog'cha. Tavsiya qilaman 👍👍👍",
+    t8_text: "Juda juda ajoyib bog'cha — har bir bolaning orzulari ushaladigan joy 🌈✨",
+    t9_text: "Juda yaxshi bog'cha. Mashg'ulotlar qiziqarli o'tadi, bolalar o'rganadi va rivojlanadi. Taomlari mazali va rang-barang, bola ishtiyoq bilan yeydi. Tarbiyachilar e'tiborli va xushmuomala, bog'chada iliq va xotirjam muhit. Tanlovimizdan mamnunmiz.",
+    t10_text: "5 dan 5 ball qo'yaman, chunki singlim u yerda o'qiydi va har kuni rus hamda o'zbek tillarida yangi so'zlar, yangi usullarni o'rganadi. Aytgancha, u atigi 3,5 yoshda, lekin logopedlar va o'qituvchilar uning sho'x xarakteriga qaramay juda yaxshi dars berishadi 😂😅 tavsiya qilaman, top"
   },
   footer: {
     enroll_title: "Bog'chaga yozilish",

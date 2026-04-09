@@ -34,6 +34,36 @@ const testimonialKeys = [
     rating: 5,
     avatar: User,
   },
+  {
+    key: 't6',
+    name: 'Kamola Ahmedova',
+    rating: 5,
+    avatar: UserRound,
+  },
+  {
+    key: 't7',
+    name: 'Jasur Umarov',
+    rating: 5,
+    avatar: User,
+  },
+  {
+    key: 't8',
+    name: 'Nigora Saliyeva',
+    rating: 5,
+    avatar: UserRound,
+  },
+  {
+    key: 't9',
+    name: 'Alisher Zokirov',
+    rating: 5,
+    avatar: User,
+  },
+  {
+    key: 't10',
+    name: 'Feruza Ismoilova',
+    rating: 5,
+    avatar: UserRound,
+  },
 ];
 
 export default function Testimonials() {
