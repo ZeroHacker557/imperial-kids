@@ -227,5 +227,13 @@ export const uz = {
     s10_desc: "Kunning oxirgi to'yimli va foydali taomi.",
     s11_title: "Erkin Vaqt va Uy",
     s11_desc: "Erkin o'yin, sayr va ota-onalarni kutish vaqti."
+  },
+  students: {
+    badge: "Bizning O'quvchilar",
+    title_1: "Bizning Kichik",
+    title_val: "Bolalar",
+    title_2: "",
+    subtitle: "Imperial Kids oilasining eng qimmatli a'zolari — sevimli o'quvchilarimiz.",
+    bottom_note: "Har bir bola — bizning faxrimiz va ilhom manbaimiz"
   }
 };

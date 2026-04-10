@@ -2,6 +2,7 @@ import FloatingElements from './components/FloatingElements';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import OurStudents from './components/OurStudents';
 import Programs from './components/Programs';
 import DailySchedule from './components/DailySchedule';
 import Gallery from './components/Gallery';
@@ -18,6 +19,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <OurStudents />
         <Programs />
         <DailySchedule />
         <Gallery />
