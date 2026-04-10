@@ -3,8 +3,11 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Programs from './components/Programs';
+import DailySchedule from './components/DailySchedule';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
+import ExpertTips from './components/ExpertTips';
+import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -16,10 +19,14 @@ export default function App() {
         <Hero />
         <About />
         <Programs />
+        <DailySchedule />
         <Gallery />
         <Testimonials />
+        <ExpertTips />
+        <FAQ />
       </main>
       <Footer />
     </div>
   );
 }
+
