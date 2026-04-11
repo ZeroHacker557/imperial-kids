@@ -2,6 +2,7 @@ import FloatingElements from './components/FloatingElements';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import OurTeam from './components/OurTeam';
 import OurStudents from './components/OurStudents';
 import Programs from './components/Programs';
 import DailySchedule from './components/DailySchedule';
@@ -19,6 +20,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <OurTeam />
         <OurStudents />
         <Programs />
         <DailySchedule />

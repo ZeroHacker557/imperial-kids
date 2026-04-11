@@ -235,5 +235,27 @@ export const uz = {
     title_2: "",
     subtitle: "Imperial Kids oilasining eng qimmatli a'zolari — sevimli o'quvchilarimiz.",
     bottom_note: "Har bir bola — bizning faxrimiz va ilhom manbaimiz"
+  },
+  team: {
+    badge: "Bizning Jamoamiz",
+    title_1: "Bizning",
+    title_val: "Professional",
+    title_2: "Jamoamiz",
+    subtitle: "Tajribali va mehribon tarbiyachilar jamoasi — har bir bolaning yorqin kelajagi uchun mehnat qiladi.",
+    bottom_note: "Har bir tarbiyachi — bolalarning ikkinchi onasi va ilhom manbai",
+    m1_role: "Bosh tarbiyachi",
+    m2_role: "Logoped mutaxassisi",
+    m3_role: "Bolalar psixologi",
+    m4_role: "Ingliz tili o'qituvchisi",
+    m5_role: "Matematika o'qituvchisi",
+    m6_role: "San'at o'qituvchisi",
+    m7_role: "Musiqa o'qituvchisi",
+    m8_role: "Taekvondo murabbiyi",
+    m9_role: "Gimnastika murabbiyi",
+    m10_role: "Oshpaz",
+    m11_role: "Tarbiyachi yordamchisi",
+    m12_role: "Kichik guruh tarbiyachisi",
+    m13_role: "O'rta guruh tarbiyachisi",
+    m14_role: "Katta guruh tarbiyachisi"
   }
 };
