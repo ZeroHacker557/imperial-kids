@@ -7,60 +7,70 @@ const testimonialKeys = [
   {
     key: 't1',
     name: 'Nilufar Karimova',
+    role: 'Ona',
     rating: 5,
     avatar: User,
   },
   {
     key: 't2',
-    name: 'Sardor Rustamov',
+    name: 'Sherzod Raximov',
+    role: 'Ota',
     rating: 5,
     avatar: UserRound,
   },
   {
     key: 't3',
     name: 'Madina Azimova',
+    role: 'Ona',
     rating: 5,
     avatar: User,
   },
   {
     key: 't4',
     name: 'Bobur Aliyev',
+    role: 'Ota',
     rating: 5,
     avatar: UserRound,
   },
   {
     key: 't5',
     name: 'Shoira Toshmatova',
+    role: 'Ona',
     rating: 5,
     avatar: User,
   },
   {
     key: 't6',
     name: 'Kamola Ahmedova',
+    role: 'Ona',
     rating: 5,
     avatar: UserRound,
   },
   {
     key: 't7',
     name: 'Jasur Umarov',
+    role: 'Ota',
     rating: 5,
     avatar: User,
   },
   {
     key: 't8',
-    name: 'Nigora Saliyeva',
+    name: 'Nigora Salimova',
+    role: 'Ona',
     rating: 5,
     avatar: UserRound,
   },
   {
     key: 't9',
     name: 'Alisher Zokirov',
+    role: 'Ota',
     rating: 5,
     avatar: User,
   },
   {
     key: 't10',
     name: 'Feruza Ismoilova',
+    role: 'Ona',
     rating: 5,
     avatar: UserRound,
   },
@@ -152,7 +162,8 @@ export default function Testimonials() {
                 <testm.avatar size={24} />
               </div>
               <div>
-                <p className="font-heading font-medium text-black">{t('testimonials.parent')}</p>
+                <p className="font-heading font-medium text-black">{testm.name}</p>
+                <p className="text-sm text-gray-500">{testm.role}</p>
               </div>
             </div>
           </motion.div>
