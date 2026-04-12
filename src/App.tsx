@@ -5,6 +5,7 @@ import About from './components/About';
 import OurTeam from './components/OurTeam';
 import OurStudents from './components/OurStudents';
 import Programs from './components/Programs';
+import Pricing from './components/Pricing';
 import DailySchedule from './components/DailySchedule';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
@@ -23,6 +24,7 @@ export default function App() {
         <OurTeam />
         <OurStudents />
         <Programs />
+        <Pricing />
         <DailySchedule />
         <Gallery />
         <Testimonials />

@@ -158,6 +158,7 @@ export default function Footer() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mb-16 rounded-3xl bg-white/10 p-8 text-center backdrop-blur sm:p-12"
+          id="enroll"
         >
           <h3 className="mb-3 flex items-center justify-center gap-2 font-heading text-2xl font-bold text-white sm:text-3xl">
             {t('footer.enroll_title')} <Crown className="text-yellow-400" />

@@ -10,16 +10,13 @@ import ima4 from '../assets/images/ima-4.jpg';
 import ima5 from '../assets/images/ima-5.jpg';
 import ima6 from '../assets/images/ima-6.jpg';
 import ima7 from '../assets/images/ima-7.jpg';
-import ima8 from '../assets/images/ima-8.jpg';
-import ima9 from '../assets/images/ima-9.jpg';
-import ima10 from '../assets/images/ima-10.jpg';
-import ima11 from '../assets/images/ima-11.jpg';
+
 import ima12 from '../assets/images/ima-12.jpg';
-import ima13 from '../assets/images/ima-13.jpg';
 import ima14 from '../assets/images/ima-14.jpg';
 
 interface TeamMember {
   src: string;
+  nameKey: string;
   roleKey: string;
   emoji: string;
   accent: string;
@@ -31,6 +28,7 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     src: ima1,
+    nameKey: 'team.m1_name',
     roleKey: 'team.m1_role',
     emoji: '👩‍🏫',
     accent: 'from-rose-400 to-pink-500',
@@ -40,6 +38,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     src: ima2,
+    nameKey: 'team.m2_name',
     roleKey: 'team.m2_role',
     emoji: '🗣️',
     accent: 'from-blue-400 to-indigo-500',
@@ -49,6 +48,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     src: ima3,
+    nameKey: 'team.m3_name',
     roleKey: 'team.m3_role',
     emoji: '🧠',
     accent: 'from-amber-400 to-orange-500',
@@ -58,6 +58,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     src: ima4,
+    nameKey: 'team.m4_name',
     roleKey: 'team.m4_role',
     emoji: '🇬🇧',
     accent: 'from-emerald-400 to-teal-500',
@@ -67,6 +68,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     src: ima5,
+    nameKey: 'team.m5_name',
     roleKey: 'team.m5_role',
     emoji: '📐',
     accent: 'from-purple-400 to-violet-500',
@@ -76,6 +78,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     src: ima6,
+    nameKey: 'team.m6_name',
     roleKey: 'team.m6_role',
     emoji: '🎨',
     accent: 'from-cyan-400 to-sky-500',
@@ -85,6 +88,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     src: ima7,
+    nameKey: 'team.m7_name',
     roleKey: 'team.m7_role',
     emoji: '🎵',
     accent: 'from-pink-400 to-rose-500',
@@ -93,67 +97,24 @@ const teamMembers: TeamMember[] = [
     delay: 0.3,
   },
   {
-    src: ima8,
-    roleKey: 'team.m8_role',
-    emoji: '🥋',
-    accent: 'from-teal-400 to-emerald-500',
-    accentBg: 'bg-teal-50',
-    borderColor: 'border-teal-200',
-    delay: 0.35,
-  },
-  {
-    src: ima9,
-    roleKey: 'team.m9_role',
-    emoji: '🤸',
-    accent: 'from-indigo-400 to-blue-500',
-    accentBg: 'bg-indigo-50',
-    borderColor: 'border-indigo-200',
-    delay: 0.4,
-  },
-  {
-    src: ima10,
-    roleKey: 'team.m10_role',
-    emoji: '👨‍🍳',
-    accent: 'from-orange-400 to-amber-500',
-    accentBg: 'bg-orange-50',
-    borderColor: 'border-orange-200',
-    delay: 0.45,
-  },
-  {
-    src: ima11,
-    roleKey: 'team.m11_role',
-    emoji: '💝',
-    accent: 'from-violet-400 to-purple-500',
-    accentBg: 'bg-violet-50',
-    borderColor: 'border-violet-200',
-    delay: 0.5,
-  },
-  {
     src: ima12,
+    nameKey: 'team.m12_name',
     roleKey: 'team.m12_role',
     emoji: '🌸',
     accent: 'from-lime-400 to-green-500',
     accentBg: 'bg-lime-50',
     borderColor: 'border-lime-200',
-    delay: 0.55,
-  },
-  {
-    src: ima13,
-    roleKey: 'team.m13_role',
-    emoji: '⭐',
-    accent: 'from-red-400 to-rose-500',
-    accentBg: 'bg-red-50',
-    borderColor: 'border-red-200',
-    delay: 0.6,
+    delay: 0.35,
   },
   {
     src: ima14,
+    nameKey: 'team.m14_name',
     roleKey: 'team.m14_role',
     emoji: '👑',
     accent: 'from-sky-400 to-cyan-500',
     accentBg: 'bg-sky-50',
     borderColor: 'border-sky-200',
-    delay: 0.65,
+    delay: 0.45,
   },
 ];
 
@@ -251,7 +212,8 @@ function Lightbox({
 
             {/* Bottom info overlay */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5 sm:p-6">
-              <p className="text-white font-bold text-base sm:text-lg font-heading tracking-wide">Imperial Kids</p>
+              <p className="text-white font-bold text-base sm:text-lg font-heading tracking-wide">{t(member.nameKey)}</p>
+              <p className="text-white/70 text-sm mt-0.5">{t(member.roleKey)}</p>
             </div>
           </div>
 
@@ -335,7 +297,10 @@ function TeamCard({
           {/* Bottom info — always visible */}
           <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-3.5">
             <p className="text-white font-bold text-xs sm:text-sm font-heading drop-shadow-lg tracking-wide">
-              Imperial Kids
+              {t(member.nameKey)}
+            </p>
+            <p className="text-white/70 text-[10px] sm:text-xs drop-shadow-lg mt-0.5">
+              {t(member.roleKey)}
             </p>
           </div>
         </div>
