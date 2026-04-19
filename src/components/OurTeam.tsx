@@ -4,14 +4,11 @@ import { Sparkles, Award, Heart, X, ChevronLeft, ChevronRight } from 'lucide-rea
 import { useLanguage } from '../context/LanguageContext';
 
 import ima1 from '../assets/images/ima-1.jpg';
-import ima2 from '../assets/images/ima-2.jpg';
 import ima3 from '../assets/images/ima-3.jpg';
-import ima4 from '../assets/images/ima-4.jpg';
 import ima5 from '../assets/images/ima-5.jpg';
 import ima6 from '../assets/images/ima-6.jpg';
 import ima7 from '../assets/images/ima-7.jpg';
 
-import ima12 from '../assets/images/ima-12.jpg';
 import ima14 from '../assets/images/ima-14.jpg';
 
 interface TeamMember {
@@ -37,16 +34,6 @@ const teamMembers: TeamMember[] = [
     delay: 0,
   },
   {
-    src: ima2,
-    nameKey: 'team.m2_name',
-    roleKey: 'team.m2_role',
-    emoji: '🗣️',
-    accent: 'from-blue-400 to-indigo-500',
-    accentBg: 'bg-blue-50',
-    borderColor: 'border-blue-200',
-    delay: 0.05,
-  },
-  {
     src: ima3,
     nameKey: 'team.m3_name',
     roleKey: 'team.m3_role',
@@ -55,16 +42,6 @@ const teamMembers: TeamMember[] = [
     accentBg: 'bg-amber-50',
     borderColor: 'border-amber-200',
     delay: 0.1,
-  },
-  {
-    src: ima4,
-    nameKey: 'team.m4_name',
-    roleKey: 'team.m4_role',
-    emoji: '🇬🇧',
-    accent: 'from-emerald-400 to-teal-500',
-    accentBg: 'bg-emerald-50',
-    borderColor: 'border-emerald-200',
-    delay: 0.15,
   },
   {
     src: ima5,
@@ -95,16 +72,6 @@ const teamMembers: TeamMember[] = [
     accentBg: 'bg-pink-50',
     borderColor: 'border-pink-200',
     delay: 0.3,
-  },
-  {
-    src: ima12,
-    nameKey: 'team.m12_name',
-    roleKey: 'team.m12_role',
-    emoji: '🌸',
-    accent: 'from-lime-400 to-green-500',
-    accentBg: 'bg-lime-50',
-    borderColor: 'border-lime-200',
-    delay: 0.35,
   },
   {
     src: ima14,
@@ -269,9 +236,6 @@ function TeamCard({
             loading="lazy"
           />
 
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
-
           {/* Top accent line */}
           <motion.div
             initial={{ width: 0 }}
@@ -283,15 +247,6 @@ function TeamCard({
           {/* Floating heart on hover */}
           <div className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 shadow-lg backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
             <Heart size={16} className="text-bordo fill-bordo/30" />
-          </div>
-
-          {/* Zoom icon indicator */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="h-14 w-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-2 border-white/40">
-              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-              </svg>
-            </div>
           </div>
 
           {/* Bottom info — always visible */}

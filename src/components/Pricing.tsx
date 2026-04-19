@@ -194,27 +194,13 @@ export default function Pricing() {
 
               {/* Schedule info */}
               <div className="px-6 sm:px-10 py-5 bg-gradient-to-r from-bordo-50/40 via-white to-bordo-50/40">
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-bordo/10">
-                      <CalendarDays size={18} className="text-bordo" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">{t('pricing.days_label')}</p>
-                      <p className="text-sm sm:text-base font-bold text-gray-800">{t('pricing.days')}</p>
-                    </div>
+                <div className="flex items-center justify-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-bordo/10">
+                    <Clock size={20} className="text-bordo" />
                   </div>
-
-                  <div className="hidden sm:block w-px h-10 bg-gray-200" />
-
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-bordo/10">
-                      <Clock size={18} className="text-bordo" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-gray-400 font-medium uppercase tracking-wide">{t('pricing.hours_label')}</p>
-                      <p className="text-sm sm:text-base font-bold text-gray-800">7:30 — 19:00</p>
-                    </div>
+                  <div className="text-left">
+                    <p className="text-sm sm:text-[15px] font-bold text-gray-800">{t('pricing.schedule_weekday')}</p>
+                    <p className="text-sm sm:text-[15px] font-bold text-bordo mt-1">{t('pricing.schedule_weekend')}</p>
                   </div>
                 </div>
               </div>
