@@ -3,7 +3,6 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import {
   Crown,
   Clock,
-  CalendarDays,
   Check,
   Sparkles,
   ShieldCheck,
